@@ -1,6 +1,7 @@
 package com.example.course.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,5 +17,10 @@ public class UserService {
 	
 	public List<User> fildAll(){
 		return repository.findAll();
+	}
+	
+	public User findById(Long Id) {
+		Optional<User> obj = repository.findById(Id);
+		return obj.get();
 	}
 }
